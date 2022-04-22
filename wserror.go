@@ -12,7 +12,7 @@ type WebServiceError struct {
 	Mnemonic        string
 	InternalMessage string
 	PublicMessage   string
-	Details         string
+	Details         map[string]interface{}
 	HTTPStatusCode  int
 }
 
@@ -46,7 +46,7 @@ func newID() string {
 	return time.Now().Format("20060102150405") + strconv.FormatUint(rnd.Uint64(), 10)
 }
 
-func NewError(code OperatingProblem, id, mnemonic, internalMessage, publicMessage, details string) WebServiceError {
+func NewError(code OperatingProblem, id, mnemonic, internalMessage, publicMessage string, details map[string]interface{}) WebServiceError {
 	httpStatusCode := operatingProblemToHTTPStatusCodeDictionary[code]
 	if httpStatusCode == 0 {
 		httpStatusCode = operatingProblemToHTTPStatusCodeDictionary[OperatingProblemDefault]
