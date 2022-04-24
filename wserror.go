@@ -46,6 +46,7 @@ func newID() string {
 	return time.Now().Format("20060102150405") + strconv.FormatUint(rnd.Uint64(), 10)
 }
 
+// NewError permits the construction of a detailed event description
 func NewError(code OperatingProblem, id, mnemonic, internalMessage, publicMessage string, details map[string]interface{}) WebServiceError {
 	httpStatusCode := operatingProblemToHTTPStatusCodeDictionary[code]
 	if httpStatusCode == 0 {
@@ -169,6 +170,10 @@ func NewNotImplemented(publicMessage string) WebServiceError {
 
 // TranscodeHTTP converts the given error in
 func TranscodeHTTP(err error) (int, string) {
+	if err == nil {
+		return httpStatusInternalServerError, "undefined technical error"
+	}
+
 	x, ok := err.(WebServiceError)
 	if !ok {
 		return httpStatusInternalServerError, err.Error()
