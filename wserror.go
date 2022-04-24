@@ -64,108 +64,160 @@ func NewError(code OperatingProblem, id, mnemonic, internalMessage, publicMessag
 	}
 }
 
+// NewEmptyResponse Short Constructor with a public message and a proper error code
 func NewEmptyResponse(publicMessage string) WebServiceError {
-	return WebServiceError{
-		ID:            newID(),
-		Code:          EmptyResponse,
-		PublicMessage: publicMessage,
-	}
+	return NewError(
+		EmptyResponse,
+		newID(),
+		"",
+		"",
+		publicMessage,
+		nil,
+	)
 }
 
+// NewInvalidInput Short Constructor with a public message and a proper error code
 func NewInvalidInput(publicMessage string) WebServiceError {
-	return WebServiceError{
-		ID:            newID(),
-		Code:          InvalidInput,
-		PublicMessage: publicMessage,
-	}
+	return NewError(
+		InvalidInput,
+		newID(),
+		"",
+		"",
+		publicMessage,
+		nil,
+	)
 }
 
+// NewInvalidInputf Short Constructor with a public message and a proper error code
 func NewInvalidInputf(publicMessage string, args ...interface{}) WebServiceError {
-	return WebServiceError{
-		ID:            newID(),
-		Code:          InvalidInput,
-		PublicMessage: fmt.Sprintf(publicMessage, args...),
-	}
+	return NewError(
+		InvalidInput,
+		newID(),
+		"",
+		"",
+		fmt.Sprintf(publicMessage, args...),
+		nil,
+	)
 }
 
+// NewPaymentRequired Short Constructor with a public message and a proper error code
 func NewPaymentRequired(publicMessage string) WebServiceError {
-	return WebServiceError{
-		ID:            newID(),
-		Code:          PaymentRequired,
-		PublicMessage: publicMessage,
-	}
+	return NewError(
+		PaymentRequired,
+		newID(),
+		"",
+		"",
+		publicMessage,
+		nil,
+	)
 }
 
+// NewForbidden Short Constructor with a public message and a proper error code
 func NewForbidden(publicMessage string) WebServiceError {
-	return WebServiceError{
-		ID:            newID(),
-		Code:          Forbidden,
-		PublicMessage: publicMessage,
-	}
+	return NewError(
+		Forbidden,
+		newID(),
+		"",
+		"",
+		publicMessage,
+		nil,
+	)
 }
 
+// NewNotFound Short Constructor with a public message and a proper error code
 func NewNotFound(publicMessage string) WebServiceError {
-	return WebServiceError{
-		ID:            newID(),
-		Code:          NotFound,
-		PublicMessage: publicMessage,
-	}
+	return NewError(
+		NotFound,
+		newID(),
+		"",
+		"",
+		publicMessage,
+		nil,
+	)
 }
 
+// NewUnacceptableInput Short Constructor with a public message and a proper error code
 func NewUnacceptableInput(publicMessage string) WebServiceError {
-	return WebServiceError{
-		ID:            newID(),
-		Code:          UnacceptableInput,
-		PublicMessage: publicMessage,
-	}
+	return NewError(
+		UnacceptableInput,
+		newID(),
+		"",
+		"",
+		publicMessage,
+		nil,
+	)
 }
 
+// NewDataConflict Short Constructor with a public message and a proper error code
 func NewDataConflict(publicMessage string) WebServiceError {
-	return WebServiceError{
-		ID:            newID(),
-		Code:          DataConflict,
-		PublicMessage: publicMessage,
-	}
+	return NewError(
+		DataConflict,
+		newID(),
+		"",
+		"",
+		publicMessage,
+		nil,
+	)
 }
 
+// NewPreconditionFailed Short Constructor with a public message and a proper error code
 func NewPreconditionFailed(publicMessage string) WebServiceError {
-	return WebServiceError{
-		ID:            newID(),
-		Code:          PreconditionFailed,
-		PublicMessage: publicMessage,
-	}
+	return NewError(
+		PreconditionFailed,
+		newID(),
+		"",
+		"",
+		publicMessage,
+		nil,
+	)
 }
 
+// NewTechProblem Short Constructor with a public message and a proper error code
 func NewTechProblem(publicMessage string) WebServiceError {
-	return WebServiceError{
-		ID:            newID(),
-		Code:          TechProblem,
-		PublicMessage: publicMessage,
-	}
+	return NewError(
+		TechProblem,
+		newID(),
+		"",
+		"",
+		publicMessage,
+		nil,
+	)
 }
 
+// NewServiceUnavailable Short Constructor with a public message and a proper error code
 func NewServiceUnavailable(publicMessage string) WebServiceError {
-	return WebServiceError{
-		ID:            newID(),
-		Code:          ServiceUnavailable,
-		PublicMessage: publicMessage,
-	}
+	return NewError(
+		ServiceUnavailable,
+		newID(),
+		"",
+		"",
+		publicMessage,
+		nil,
+	)
 }
 
+// NewUnauthorized Short Constructor with a public message and a proper error code
 func NewUnauthorized(publicMessage string) WebServiceError {
-	return WebServiceError{
-		ID:            newID(),
-		Code:          Unauthorized,
-		PublicMessage: publicMessage,
-	}
+	return NewError(
+		Unauthorized,
+		newID(),
+		"",
+		"",
+		publicMessage,
+		nil,
+	)
 }
 
+// NewNotImplemented Short Constructor with a public message and a proper error code
 func NewNotImplemented(publicMessage string) WebServiceError {
-	return WebServiceError{
-		ID:            newID(),
-		Code:          OperationNotImplemented,
-		PublicMessage: publicMessage,
-	}
+	return NewError(
+		OperationNotImplemented,
+		newID(),
+		"",
+		"",
+		publicMessage,
+		nil,
+	)
 }
 
 // TranscodeHTTP converts the given error in
